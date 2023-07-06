@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    .update-form {
+        width: 300px;
+        margin: 20px auto;
+    }
+
+    .update-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .update-form input[type="text"],
+    .update-form textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .update-form input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .update-form input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<form method="post" enctype="multipart/form-data" class="update-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="update">
+</form>
+{% endblock %}
